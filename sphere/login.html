@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Sphere</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #00d4ff;
+      --bg: #0a0a0f;
+      --accent: #7b00ff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0a0a0f 0%, #1a0033 100%);
+      color: #e0e0ff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .login-container {
+      display: flex;
+      width: 95%;
+      max-width: 1080px;
+      background: rgba(18, 18, 26, 0.95);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 25px 80px rgba(0, 212, 255, 0.2);
+      backdrop-filter: blur(15px);
+    }
+
+    .left-side {
+      flex: 1;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      padding: 80px 60px;
+      color: black;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .logo {
+      font-size: 58px;
+      font-weight: 900;
+      margin-bottom: 30px;
+      letter-spacing: -2px;
+    }
+
+    .left-side h1 {
+      font-size: 44px;
+      line-height: 1.1;
+      margin-bottom: 25px;
+    }
+
+    .left-side p {
+      font-size: 19px;
+      opacity: 0.95;
+    }
+
+    .right-side {
+      flex: 1;
+      padding: 80px 70px;
+    }
+
+    .form-wrapper {
+      max-width: 380px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    h2 { font-size: 32px; text-align: center; margin-bottom: 10px; }
+    .subtitle { text-align: center; color: #a0a0cc; margin-bottom: 40px; font-size: 16px; }
+
+    .input-group { margin-bottom: 22px; }
+    .input-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14.5px;
+      color: #bbb;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 16px 20px;
+      background: #1f1f2e;
+      border: 2px solid #333;
+      border-radius: 14px;
+      color: white;
+      font-size: 16.5px;
+    }
+
+    .input-field:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    .btn-login {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      color: black;
+      font-size: 18px;
+      font-weight: 700;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      margin: 15px 0;
+    }
+
+    .btn-login:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(0, 212, 255, 0.4);
+    }
+
+    .links {
+      display: flex;
+      justify-content: space-between;
+      margin: 15px 0 25px;
+      font-size: 14.5px;
+    }
+
+    .create-account-link {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 15.5px;
+    }
+
+    .create-account-link a,
+    .forgot-link {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+
+    <!-- Left Side -->
+    <div class="left-side">
+      <div class="logo">Sphere</div>
+      <h1>Connect.<br>Share.<br>Belong.</h1>
+      <p>Stay close to the people and moments that matter most.</p>
+    </div>
+
+    <!-- Right Side -->
+    <div class="right-side">
+      <div class="form-wrapper">
+        <h2>Welcome Back</h2>
+        <p class="subtitle">Sign in to your Sphere account</p>
+
+        <div class="input-group">
+          <label>Email or Username</label>
+          <input type="text" id="email" class="input-field" value="puskal@example.com" placeholder="puskal@example.com">
+        </div>
+
+        <div class="input-group">
+          <label>Password</label>
+          <input type="password" id="password" class="input-field" value="123456" placeholder="••••••••">
+        </div>
+
+        <div class="links">
+          <a href="forgot-password.html" class="forgot-link">Forgot password?</a>
+        </div>
+
+        <button class="btn-login" onclick="handleLogin()">Log In</button>
+
+        <div class="create-account-link">
+          Don't have an account? 
+          <a href="signup.html">Create Account</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function handleLogin() {
+      const email = document.getElementById('email').value.trim();
+
+      if (!email) {
+        alert("Please enter your email or username");
+        return;
+      }
+
+      alert(`✅ Login Successful!\n\nWelcome back to Sphere, Puskal!`);
+
+      // Redirect to feed page
+      setTimeout(() => {
+        window.location.href = "feed.html";
+      }, 800);
+    }
+
+    // Press Enter to login
+    document.addEventListener("keypress", function(e) {
+      if (e.key === "Enter") handleLogin();
+    });
+  </script>
+</body>
+</html>
